@@ -3,9 +3,15 @@ import sys
 
 def is_xmas(grid, x, y):
     def tlbr(i):
+        # X00
+        # 0X0
+        # 00X
         return grid[y + i][x + i]
 
     def trbl(i):
+        # 00X
+        # 0X0
+        # X00
         return grid[y + i][x + 2 - i]
 
     def is_mas(word):
