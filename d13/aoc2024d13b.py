@@ -1,36 +1,13 @@
 import sys
-from dataclasses import dataclass
-from math import sqrt
 from typing import NamedTuple
 
 
 SHIFT = 10000000000000
 
 
-@dataclass
-class Vector:
+class Vector(NamedTuple):
     x: int
     y: int
-
-    def divisible_by(self, other: "Vector"):
-        if self.x % other.x != 0:
-            return False
-        return self.y / other.y == self.x / other.x
-
-    def mag(self):
-        return sqrt(self.x**2 + self.y**2)
-
-    def __add__(self, other):
-        return Vector(self.x + other.x, self.y + other.y)
-
-    def __sub__(self, other):
-        return Vector(self.x - other.x, self.y - other.y)
-
-    def __mul__(self, other):
-        return Vector(other * self.x, other * self.y)
-
-    def __rmul__(self, other):
-        return Vector(other * self.x, other * self.y)
 
 
 class ClawMachine(NamedTuple):
